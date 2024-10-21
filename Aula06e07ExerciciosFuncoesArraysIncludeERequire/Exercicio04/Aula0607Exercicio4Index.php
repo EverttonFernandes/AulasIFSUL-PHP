@@ -10,7 +10,6 @@
     $listaDeTarefas = adicionarTarefa("Fazer terapia", $listaDeTarefas);
     $listaDeTarefas = adicionarTarefa("Fazer exercicios de PHP", $listaDeTarefas);
 
-    exibirTarefas($listaDeTarefas);
 
     $listaDeTarefas = alterarStatusTarefa("Fazer exercicios de PHP", "concluída", $listaDeTarefas);
     $listaDeTarefas = alterarStatusTarefa("Ir na academia", "concluída", $listaDeTarefas);

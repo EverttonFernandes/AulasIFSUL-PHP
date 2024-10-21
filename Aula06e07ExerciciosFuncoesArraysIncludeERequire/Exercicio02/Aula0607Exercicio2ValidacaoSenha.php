@@ -12,11 +12,11 @@
         }
     }
 
-    function possuiOitoDigitos($senha) {
+    function possuiOitoDigitos($senha): bool {
         return strlen($senha) >= 8;
     }
 
-    function possuiLetraMaiscula($senha) {
+    function possuiLetraMaiscula($senha): bool {
         foreach (str_split($senha) as $caractere) {
             if (ctype_upper($caractere)) {
                 return true;
@@ -25,7 +25,7 @@
         return false;
     }
 
-    function possuiLetraMinuscula($senha) {
+    function possuiLetraMinuscula($senha): bool {
         foreach (str_split($senha) as $caractere) {
             if (ctype_lower($caractere)) {
                 return true;
@@ -34,7 +34,7 @@
         return false;
     }
 
-    function possuiNumero($senha) {
+    function possuiNumero($senha): bool {
         foreach (str_split($senha) as $caractere) {
             if (is_numeric($caractere)) {
                 return true;
@@ -43,11 +43,14 @@
         return false;
     }
 
-    function possuiCaracterEspecial($senha) {
-        return strpbrk($senha, '!@#$%^&*()-_=+{}[]|:;,.<>?/\\~`') !== false;
+    function possuiCaracterEspecial($senha): bool {
+        if(strpbrk($senha, '!@#$%^&*()-_=+{}[]|:;,.<>?/\\~`') !== false){
+            return true;
+        }
+        return false;
     }
 
-    function naoPossuiEspacosEmBranco($senha) {
+    function naoPossuiEspacosEmBranco($senha): bool {
         foreach (str_split($senha) as $caractere) {
             if (ctype_space($caractere)) {
                 return false;
