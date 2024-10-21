@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário GET e POST</title>
+</head>
+<body>
+    <h2>Buscar Produto (GET)</h2>
+    <form action="buscar_produto.php" method="get">
+        Nome do Produto: <input type="text" name="produto"><br>
+        <input type="submit" value="Buscar Produto">
+    </form>
+
+    <h2>Adicionar Novo Produto (POST)</h2>
+    <form action="adicionar_produto.php" method="post">
+        Nome do Produto: <input type="text" name="novoProduto"><br>
+        Preço do Produto: <input type="number" name="precoProduto" step="0.01"><br>
+        <input type="submit" value="Adicionar Produto">
+    </form>
+</body>
+</html>
