@@ -3,28 +3,36 @@
     $carrinho = [];
 
     function adicionarAoCarrinho($produto, $quantidade, $carrinho, $catalogo){
-        echo "produto: ".$produto."<br>";
-        echo "quantidade: ".$quantidade."<br>";
         if (verificarEstoque($produto, $catalogo)) {
-            echo"Tem no estoque";
-            if (isset($carrinho[$produto])) {
-                $carrinho[$produto] += $quantidade;
+            if (produtoJaEstaNoCarrinho($carrinho, $produto)) {
+                $carrinho[$produto] = acumularAQuantidadeInformadaComAQuantidadeExistenteNoCarrinho($carrinho[$produto], $quantidade);
             } else {
-                $carrinho[$produto] = $quantidade;
+                $carrinho[$produto] = inserirProdutoESuaQuantidadeInformadaPelaPrimeiraVezNoCarrinho($quantidade);
             }
             echo "Produto '$produto' adicionado ao carrinho com sucesso!<br>";
             return $carrinho;
         } else {
             echo "Produto '$produto' não está disponível no estoque.<br>";
+            return $carrinho;
         }
+    }
+
+    function produtoJaEstaNoCarrinho($carrinho, $produto): bool{
+        return isset($carrinho[$produto]);
+    }
+
+    function acumularAQuantidadeInformadaComAQuantidadeExistenteNoCarrinho($quantidadeAtual, $quantidadeAdicional){
+        return $quantidadeAtual + $quantidadeAdicional;
+    }
+
+    function inserirProdutoESuaQuantidadeInformadaPelaPrimeiraVezNoCarrinho($quantidade){
+        return $quantidade;
     }
 
     function calcularPrecoTotal($carrinho, $catalogo){
         $total = 0;
         foreach ($carrinho as $produto => $quantidade) {
-            if (verificarEstoque($produto, $catalogo)) {
-                $total += $catalogo[$produto] * $quantidade;
-            }
+            $total += $catalogo[$produto] * $quantidade;
         }
         return $total;
     }
