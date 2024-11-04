@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Carrinho de Compras</title>
+</head>
+<body>
+    <h2>Buscar Produto no Catálogo</h2>
+    <form action="buscarProduto.php" method="GET">
+        Nome do Produto: <input type="text" name="produto"><br>
+        <input type="submit" value="Buscar">
+    </form>
+
+    <h2>Adicionar Produto ao Carrinho</h2>
+    <form action="adicionarProduto.php" method="POST">
+        Nome do Produto: <input type="text" name="produto"><br>
+        Quantidade: <input type="number" name="quantidade" min="1"><br>
+        <input type="submit" value="Adicionar ao Carrinho">
+    </form>
+</body>
+</html>
