@@ -7,9 +7,11 @@
 </head>
 <body>
     <h1>Upload de Imagem</h1>
+    <!--enctype="multipart/form-data" usado para fazer upload de arquivos através de um formulario HTML-->
     <form action="uploadImagem.php" method="POST" enctype="multipart/form-data">
         <label for="arquivo">Escolha uma imagem (JPEG ou PNG):</label>
         <input type="file" name="arquivo" id="arquivo" accept=".jpg, .jpeg, .png">
+        <!--accept=".jpg, .jpeg, .png"> USADO PARA INFORMAR O TIPO DE ARQUIVO QUE SERÁ ACEITO NO UPLOAD-->
         <button type="submit">Enviar</button>
     </form>
 </body>
