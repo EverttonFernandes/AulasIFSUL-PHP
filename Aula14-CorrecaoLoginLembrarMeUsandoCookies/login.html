@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="processarLogin.php" method="POST">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br>
+        
+        <label for="lembrar">
+            <input type="checkbox" id="lembrar" name="lembrar">
+            Lembrar-me
+        </label>
+        <br>
+        
+        <button type="submit">Entrar</button>
+
+        <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
+            <p style="color: red;">Usuário ou senha inválidos.</p>
+        <?php endif; ?>
+    </form>
+</body>
+</html>
