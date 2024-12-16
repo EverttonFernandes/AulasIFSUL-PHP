@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Produtos</title>
+</head>
+<body>
+    <h1>Upload de Arquivo CSV</h1>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <label for="arquivo">Selecione o arquivo CSV:</label>
+        <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <br>
+    <form action="exportar.php" method="POST">
+        <button type="submit">Exportar Produtos para CSV</button>
+    </form>
+</body>
+</html>
